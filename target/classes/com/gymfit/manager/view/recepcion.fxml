@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1280.0" styleClass="fondo-app"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.gymfit.manager.controller.RecepcionController">
+
+    <top>
+        <VBox>
+            <MenuBar styleClass="barra-menu">
+                <Menu text="_Archivo">
+                    <MenuItem onAction="#prepararNuevo" text="Nuevo socio">
+                        <accelerator><KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <MenuItem onAction="#guardarNuevoSocio" text="Guardar socio">
+                        <accelerator><KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <SeparatorMenuItem/>
+                    <MenuItem onAction="#salirAplicacion" text="Salir"/>
+                </Menu>
+                <Menu text="_Editar">
+                    <MenuItem onAction="#editarSocio" text="Editar seleccionado">
+                        <accelerator><KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                    <MenuItem onAction="#confirmarBorradoFormulario" text="Borrar formulario"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem onAction="#darDeBajaSocio" text="Dar de baja">
+                        <accelerator><KeyCodeCombination alt="UP" code="DELETE" control="UP" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                </Menu>
+                <Menu text="_Socios">
+                    <MenuItem onAction="#renovarCuota" text="Renovar cuota"/>
+                    <MenuItem onAction="#congelarAlta" text="Congelar alta"/>
+                </Menu>
+                <Menu text="_Ver">
+                    <CheckMenuItem fx:id="menuSoloActivos" onAction="#filtrarTabla" text="Solo socios activos"/>
+                </Menu>
+                <Menu text="A_yuda">
+                    <MenuItem onAction="#mostrarAtajos" text="Atajos de teclado">
+                        <accelerator><KeyCodeCombination alt="UP" code="F1" control="UP" meta="UP" shift="UP" shortcut="UP"/></accelerator>
+                    </MenuItem>
+                </Menu>
+            </MenuBar>
+
+            <ToolBar styleClass="barra-herramientas">
+                <Button onAction="#prepararNuevo" styleClass="btn-tool" text="➕ Nuevo">
+                    <tooltip><Tooltip text="Limpiar y crear un nuevo socio (Ctrl+N)"/></tooltip>
+                </Button>
+                <Button onAction="#guardarNuevoSocio" styleClass="btn-tool" text="💾 Guardar">
+                    <tooltip><Tooltip text="Guardar ficha en el listado (Ctrl+S)"/></tooltip>
+                </Button>
+                <Separator orientation="VERTICAL"/>
+                <Button onAction="#editarSocio" styleClass="btn-tool" text="✏️ Editar">
+                    <tooltip><Tooltip text="Cargar socio seleccionado (Ctrl+E)"/></tooltip>
+                </Button>
+                <Button onAction="#renovarCuota" styleClass="btn-tool" text="🔄 Renovar">
+                    <tooltip><Tooltip text="Activar o renovar cuota del socio"/></tooltip>
+                </Button>
+                <Separator orientation="VERTICAL"/>
+                <Button onAction="#darDeBajaSocio" styleClass="btn-tool-peligro" text="🗑️ Dar de baja">
+                    <tooltip><Tooltip text="Eliminar socio previa confirmación (Supr)"/></tooltip>
+                </Button>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label styleClass="etiqueta-sede" text="GymFit · Recepción"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.44">
+            <padding><Insets bottom="16" left="16" right="16" top="16"/></padding>
+
+            <ScrollPane fitToWidth="true">
+                <VBox spacing="13" styleClass="tarjeta">
+                    <padding><Insets bottom="20" left="20" right="20" top="20"/></padding>
+
+                    <Label styleClass="titulo-bloque" text="Ficha de Alta de Socio"/>
+                    <Label styleClass="subtitulo-bloque" text="Rellena los datos en orden. Los campos con * son obligatorios."/>
+
+                    <VBox fx:id="cajaAlertaError" managed="false" spacing="4" styleClass="alerta-error" visible="false">
+                        <Label fx:id="etiquetaErrorTitulo" styleClass="alerta-titulo" text="Error de validación"/>
+                        <Label fx:id="etiquetaErrorSolucion" styleClass="alerta-texto" wrapText="true" text="Detalle de solución"/>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label styleClass="label-campo" text="Nombre *"/>
+                        <TextField fx:id="campoNombre" promptText="Ej. Miguel Angel"/>
+                    </VBox>
+
+                    <HBox spacing="10">
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label styleClass="label-campo" text="Primer apellido *"/>
+                            <TextField fx:id="campoApellido1" promptText="Ej. Toro"/>
+                        </VBox>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label styleClass="label-campo" text="Segundo apellido"/>
+                            <TextField fx:id="campoApellido2" promptText="Ej. Chaves"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="10">
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label styleClass="label-campo" text="Fecha de nacimiento *"/>
+                            <DatePicker fx:id="selectorNacimiento" maxWidth="Infinity" promptText="dd/mm/aaaa"/>
+                        </VBox>
+                        <VBox spacing="4" HBox.hgrow="ALWAYS">
+                            <Label styleClass="label-campo" text="Provincia *"/>
+                            <ComboBox fx:id="comboProvincia" maxWidth="Infinity" promptText="Selecciona provincia..."/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox spacing="6">
+                        <Label styleClass="label-campo" text="Sexo *"/>
+                        <HBox spacing="16">
+                            <fx:define><ToggleGroup fx:id="grupoSexo"/></fx:define>
+                            <RadioButton fx:id="radioMujer" text="Mujer" toggleGroup="$grupoSexo"/>
+                            <RadioButton fx:id="radioHombre" text="Hombre" toggleGroup="$grupoSexo"/>
+                            <RadioButton fx:id="radioOtro" text="Otro" toggleGroup="$grupoSexo"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox spacing="6">
+                        <Label styleClass="label-campo" text="Tipo de cuota *"/>
+                        <FlowPane hgap="14" vgap="8">
+                            <fx:define><ToggleGroup fx:id="grupoCuota"/></fx:define>
+                            <RadioButton fx:id="radioBasica" text="Básica (29 €)" toggleGroup="$grupoCuota"/>
+                            <RadioButton fx:id="radioPlus" text="Plus (39 €)" toggleGroup="$grupoCuota"/>
+                            <RadioButton fx:id="radioPremium" text="Premium (49 €)" toggleGroup="$grupoCuota"/>
+                            <RadioButton fx:id="radioJoven" text="Joven (24 €)" toggleGroup="$grupoCuota"/>
+                            <RadioButton fx:id="radioSenior" text="Senior (22 €)" toggleGroup="$grupoCuota"/>
+                        </FlowPane>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label styleClass="label-campo" text="Clase dirigida *"/>
+                        <ComboBox fx:id="comboClase" maxWidth="Infinity" promptText="Elige una clase (ej. Spinning)..."/>
+                    </VBox>
+
+                    <VBox spacing="4">
+                        <Label styleClass="label-campo" text="IBAN domiciliación"/>
+                        <TextField fx:id="campoIban" promptText="Ej. ES91 2100 0418 4502 0005 1332"/>
+                    </VBox>
+
+                    <Separator/>
+
+                    <HBox alignment="CENTER_LEFT" spacing="10">
+                        <Button onAction="#confirmarBorradoFormulario" styleClass="btn-peligro" text="Borrar todo"/>
+                        <Region HBox.hgrow="ALWAYS"/>
+                        <Button onAction="#cancelarEdicion" styleClass="btn-secundario" text="Cancelar"/>
+                        <Button defaultButton="true" onAction="#guardarNuevoSocio" styleClass="btn-primario" text="Guardar socio"/>
+                    </HBox>
+                </VBox>
+            </ScrollPane>
+
+            <VBox spacing="12" styleClass="tarjeta">
+                <padding><Insets bottom="20" left="20" right="20" top="20"/></padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="12">
+                    <VBox>
+                        <Label styleClass="titulo-bloque" text="Listado de Socios"/>
+                        <Label fx:id="etiquetaTotalSocios" styleClass="subtitulo-bloque" text="Total visibles: 4 socios"/>
+                    </VBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="campoFiltro" prefWidth="230" promptText="🔍 Filtrar por nombre o provincia..."/>
+                </HBox>
+
+                <TableView fx:id="tablaSocios" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNombre" prefWidth="185" text="Nombre completo"/>
+                        <TableColumn fx:id="colNacimiento" prefWidth="110" text="F. Nacimiento"/>
+                        <TableColumn fx:id="colProvincia" prefWidth="105" text="Provincia"/>
+                        <TableColumn fx:id="colCuota" prefWidth="95" text="Cuota"/>
+                        <TableColumn fx:id="colClase" prefWidth="115" text="Clase"/>
+                        <TableColumn fx:id="colEstado" prefWidth="90" text="Estado"/>
+                    </columns>
+                    <contextMenu>
+                        <ContextMenu>
+                            <items>
+                                <MenuItem onAction="#verFichaSocio" text="👁️ Ver ficha"/>
+                                <MenuItem onAction="#editarSocio" text="✏️ Editar socio"/>
+                                <MenuItem onAction="#renovarCuota" text="🔄 Renovar cuota"/>
+                                <MenuItem onAction="#congelarAlta" text="❄️ Congelar alta"/>
+                                <MenuItem onAction="#copiarIban" text="📋 Copiar IBAN"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem onAction="#darDeBajaSocio" text="🗑️ Dar de baja"/>
+                            </items>
+                        </ContextMenu>
+                    </contextMenu>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox styleClass="barra-estado">
+            <padding><Insets bottom="6" left="16" right="16" top="6"/></padding>
+            <Label fx:id="etiquetaBarraEstado" text="Listo. Usa Ctrl+N para iniciar un alta."/>
+        </HBox>
+    </bottom>
+</BorderPane>
