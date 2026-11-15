@@ -41,8 +41,15 @@ public class RecepcionController {
         ));
 
         comboClase.setItems(FXCollections.observableArrayList(
-                "Body Pump", "Boxeo", "Cross Training", "GAP",
-                "Natación", "Pilates", "Spinning", "Yoga", "Zumba"
+                "Body Pump (L-X-V · 10:00 - 11:00)",
+                "Boxeo (M-J · 19:00 - 20:00)",
+                "Cross Training (L-X-V · 18:00 - 19:00)",
+                "GAP (M-J · 11:00 - 12:00)",
+                "Natación (L-V · 09:00 - 10:00)",
+                "Pilates (M-J · 17:00 - 18:00)",
+                "Spinning (L-X-V · 19:30 - 20:30)",
+                "Yoga (M-J · 10:00 - 11:00)",
+                "Zumba (L-X · 18:30 - 19:30)"
         ));
 
 
