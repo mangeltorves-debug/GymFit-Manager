@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6097937-c3f5-46b7-b302-f37a242666aa" name="Changes" comment="Proyecto tal cual">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gymfit/manager/controller/RecepcionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gymfit/manager/controller/RecepcionController.java" afterDir="false" />
-    </list>
+    <list default="true" id="a6097937-c3f5-46b7-b302-f37a242666aa" name="Changes" comment="Añadido horas de clase en el menu despegable" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,23 +31,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0170372440205775" />
-      <entry key="MS500" value="1.676941915469667" />
-      <entry key="S2" value="2.9886413531352183" />
-      <entry key="S5" value="3.912281838561717" />
-      <entry key="S10" value="4.389892129535173" />
-      <entry key="S30" value="4.779479879826969" />
-      <entry key="S60" value="4.889908670878993" />
-      <entry key="M2" value="5.0545780226329535" />
-      <entry key="M5" value="6.069014843783593" />
-      <entry key="M10" value="7.3250593590013535" />
-      <entry key="M15" value="8.003291899159262" />
-      <entry key="M30" value="8.87620574631526" />
-      <entry key="H1" value="9.402645713073692" />
-      <entry key="H2" value="9.691887816882028" />
-      <entry key="H4" value="9.843509784054104" />
-      <entry key="D1" value="9.973573631527268" />
-      <entry key="W1" value="9.996216276382581" />
+      <entry key="MS100" value="1.026690603052918" />
+      <entry key="MS500" value="1.7263879153134782" />
+      <entry key="S2" value="5.042211684268147" />
+      <entry key="S5" value="8.917291525693537" />
+      <entry key="S10" value="11.38586730858985" />
+      <entry key="S30" value="13.647452323057705" />
+      <entry key="S60" value="14.553162375441993" />
+      <entry key="M2" value="15.804308952149999" />
+      <entry key="M5" value="18.22706576811266" />
+      <entry key="M10" value="20.387339409210757" />
+      <entry key="M15" value="21.530965356728828" />
+      <entry key="M30" value="23.023733978670816" />
+      <entry key="H1" value="23.94110500493656" />
+      <entry key="H2" value="24.451368338782228" />
+      <entry key="H4" value="24.72068700370817" />
+      <entry key="D1" value="24.952735995455416" />
+      <entry key="W1" value="24.99323032963026" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -71,23 +69,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9757125622323614" />
-      <entry key="MS500" value="1.66324659829092" />
-      <entry key="S2" value="2.981113689484923" />
-      <entry key="S5" value="3.907776729436613" />
-      <entry key="S10" value="4.387233443059213" />
-      <entry key="S30" value="4.7784812654466" />
-      <entry key="S60" value="4.889392681591006" />
-      <entry key="M2" value="5.054293714163716" />
-      <entry key="M5" value="6.068818776878822" />
-      <entry key="M10" value="7.324909140502534" />
-      <entry key="M15" value="8.003172869880338" />
-      <entry key="M30" value="8.876134050271007" />
-      <entry key="H1" value="9.402606185741014" />
-      <entry key="H2" value="9.691867041637876" />
-      <entry key="H4" value="9.843499131189795" />
-      <entry key="D1" value="9.973571818119181" />
-      <entry key="W1" value="9.99621601638083" />
+      <entry key="MS100" value="0.9784191177374214" />
+      <entry key="MS500" value="1.711596268463298" />
+      <entry key="S2" value="5.032426334525285" />
+      <entry key="S5" value="8.910438630287294" />
+      <entry key="S10" value="11.381497895935773" />
+      <entry key="S30" value="13.645706224602312" />
+      <entry key="S60" value="14.55222126156531" />
+      <entry key="M2" value="15.80377555813843" />
+      <entry key="M5" value="18.22676691107284" />
+      <entry key="M10" value="20.387132016029092" />
+      <entry key="M15" value="21.53080378583234" />
+      <entry key="M30" value="23.02363706199544" />
+      <entry key="H1" value="23.941051398796183" />
+      <entry key="H2" value="24.45134007886517" />
+      <entry key="H4" value="24.720672486060813" />
+      <entry key="D1" value="24.952733519895826" />
+      <entry key="W1" value="24.993229974580387" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -99,28 +97,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.App.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -144,7 +144,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Proyecto tal cual" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proyecto tal cual" />
+    <MESSAGE value="Añadido horas de clase en el menu despegable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido horas de clase en el menu despegable" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
